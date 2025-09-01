@@ -1,0 +1,22 @@
+/* Custom color scheme for pagination */
+.custom-pagination .page-link {
+  color: #5c6bc0; /* Change to your preferred text color */
+  background-color: #e8eaf6; /* Change to your preferred background color */
+  border: 1px solid #c5cae9; /* Change to your preferred border color */
+}
+
+.custom-pagination .page-item.active .page-link {
+  color: #fff;
+  background-color: #3949ab; /* Change to your preferred active background */
+  border-color: #3949ab; /* Change to your preferred active border */
+}
+
+.custom-pagination .page-link:hover {
+  color: #3949ab;
+  background-color: #c5cae9; /* Change to your preferred hover background */
+  border-color: #9fa8da; /* Change to your preferred hover border */
+}
+
+.custom-pagination .page-link:focus {
+  box-shadow: 0 0 0 0.2rem rgba(57, 73, 171, 0.25); /* Change to match your color scheme */
+}

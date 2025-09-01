@@ -1,0 +1,14 @@
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: bold; 
+    background: linear-gradient(45deg, #061958, #1166cdcd); 
+    -webkit-background-clip: text;    
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.3rem;
+}
+
+.nav-accent {
+    color: #eaba52fb !important;
+    -webkit-text-fill-color: #b95e0eb9 !important;
+}

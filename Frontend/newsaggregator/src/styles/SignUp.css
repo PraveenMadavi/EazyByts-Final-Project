@@ -1,0 +1,207 @@
+/* SignUp.css */
+
+/* Main container */
+.signup-container {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* Wrapper for positioning card to the right */
+.signup-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 100vh;
+    padding-right: 5%;
+}
+
+/* Card styling */
+.signup-card {
+    width: 400px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border: none;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.signup-card-body {
+    padding: 1rem;
+}
+
+/* Brand section */
+.brand-section {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.brand-logo {
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.75rem;
+}
+
+.brand-accent {
+    color: #ff6b6b !important;
+    -webkit-text-fill-color: #ff6b6b !important;
+}
+
+.brand-tagline {
+    color: #6c757d;
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+/* Title */
+.signup-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+/* Form styling */
+.form-label {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.custom-input {
+    border-radius: 10px !important;
+    border: 2px solid #e9ecef !important;
+    padding: 12px 15px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.custom-input:focus {
+    border-color: #667eea !important;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25) !important;
+    outline: none;
+}
+
+.custom-input:hover {
+    border-color: #d1d9ff;
+}
+
+/* Password hint */
+.password-hint {
+    color: #6c757d;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+/* Sign up button */
+.signup-button {
+    border-radius: 10px !important;
+    background: linear-gradient(45deg, #667eea, #764ba2) !important;
+    border: none !important;
+    font-weight: 600;
+    padding: 12px;
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.signup-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(45deg, #5a6fd8, #6a4190) !important;
+}
+
+.signup-button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+/* Sign in section */
+.signin-section {
+    text-align: center;
+}
+
+.signin-divider {
+    margin: 1.5rem 0;
+    border-color: #e9ecef;
+}
+
+.signin-text {
+    color: #6c757d;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.signin-redirect-button {
+    border-radius: 10px !important;
+    border: 2px solid #6c757d !important;
+    font-weight: 600;
+    padding: 12px;
+    transition: all 0.3s ease;
+    background: transparent !important;
+    color: #6c757d !important;
+}
+
+.signin-redirect-button:hover {
+    background-color: #6c757d !important;
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(108, 117, 125, 0.3);
+}
+
+.signin-redirect-button:active {
+    transform: translateY(0);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .signup-wrapper {
+        justify-content: center;
+        padding: 1rem;
+    }
+    
+    .signup-card {
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .signup-card-body {
+        padding: 2rem;
+    }
+    
+    .brand-logo {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .signup-card-body {
+        padding: 1.5rem;
+    }
+    
+    .brand-logo {
+        font-size: 1.8rem;
+    }
+}
+
+/* Animation for card entrance */
+.signup-card {
+    animation: slideInRight 0.6s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
