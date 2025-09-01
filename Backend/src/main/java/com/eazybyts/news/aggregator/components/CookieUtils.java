@@ -18,7 +18,7 @@ public class CookieUtils {
                                          String path) {
         Cookie cookie = new Cookie(name, value);
         cookie.setHttpOnly(true);
-        cookie.setSecure(false);  // For dev:false and prod:true
+        cookie.setSecure(true);  // For dev:false and prod:true
         cookie.setPath(path);
         cookie.setMaxAge(maxAge);
 //        cookie.setAttribute("SameSite", "Strict");  // Prevent CSRF
