@@ -20,6 +20,7 @@ public class NewsQueryController {
 
     @PostMapping("/get-news")
     public List<Article> getNews (@RequestBody ReqData reqData){
+        System.out.println("get-news requested.");
         System.out.println(reqData);
         ApiResponse apiResponse = newsApiService.getNews(reqData);
 //        System.out.println(apiResponse.getArticles());

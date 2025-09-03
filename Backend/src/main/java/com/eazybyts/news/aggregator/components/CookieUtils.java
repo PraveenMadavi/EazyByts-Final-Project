@@ -21,8 +21,9 @@ public class CookieUtils {
         cookie.setSecure(true);  // For dev:false and prod:true
         cookie.setPath(path);
         cookie.setMaxAge(maxAge);
-//        cookie.setAttribute("SameSite", "Strict");  // Prevent CSRF
+        cookie.setAttribute("SameSite", "none");  // Prevent CSRF
 
         response.addCookie(cookie);
+
     }
 }
