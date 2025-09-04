@@ -16,8 +16,8 @@ import java.util.function.Function;
 @Component
 public class JwtHelper {
 
-    // Token validity (5 hours)
-    public static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60 * 1000;
+    // Token validity (1 hours)
+    public static final long JWT_TOKEN_VALIDITY = 60 * 60 * 1000;
 
     // Secure key for signing JWTs
     private final Key secretKey = Keys.secretKeyFor(SignatureAlgorithm.HS256);

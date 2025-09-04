@@ -24,6 +24,14 @@ function UserProfile() {
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
 
+    useEffect(() => {
+        if (!user_name || user_name.trim() === "") {
+            navigate("/");
+        }
+    }, [user_name, navigate]);
+
+
+    console.log("User_name >> ", user_name)
     const handleLogOut = async () => {
         try {
             const res = await axios.post(`${BaseURL}/user/logout`, {
@@ -53,7 +61,7 @@ function UserProfile() {
     return (
         <div className="user-profile-container" ref={dropdownRef}>
             {/* Profile Toggle Button */}
-            <button 
+            <button
                 className="profile-toggle-btn"
                 onClick={toggleDropdown}
                 aria-expanded={isDropdownOpen}
@@ -65,12 +73,12 @@ function UserProfile() {
                     </div>
                     {/* <div className="online-status-dot"></div> */}
                 </div>
-                
+
                 <span className="profile-username">
                     {user_name || "User"}
                 </span>
-                
-                <ChevronDown 
+
+                <ChevronDown
                     className={`profile-chevron ${isDropdownOpen ? 'rotated' : ''}`}
                 />
             </button>
@@ -83,7 +91,7 @@ function UserProfile() {
                         <div className="profile-large-avatar">
                             {getUserInitials(user_name)}
                         </div>
-                        
+
                         <div className="profile-user-details">
                             <div className="profile-name-section">
                                 <User className="profile-icon-sm" />
@@ -114,7 +122,7 @@ function UserProfile() {
                         <User className="profile-menu-icon" />
                         <span className="profile-menu-text">View Profile</span>
                     </button>
-                    
+
                     <button
                         className="profile-menu-item logout-menu-item"
                         onClick={handleLogOut}
