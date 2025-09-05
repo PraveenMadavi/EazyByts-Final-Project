@@ -52,7 +52,7 @@ function NewsNav(args) {
 
           <Nav className="mx-auto d-flex justify-content-center" navbar>
             <NavItem > 
-              <NavLink href="/components/" className="text-light fw-bold nav-hover">Home</NavLink> </NavItem>
+              <NavLink href="#" className="text-light fw-bold nav-hover">Home</NavLink> </NavItem>
             <NavItem >
               <NavLink href="#"
                 className="text-light fw-bold nav-hover"
