@@ -20,7 +20,7 @@ import { useNews } from "./NewsContext";
 
 function SignIn() {
     const BaseURL = import.meta.env.VITE_API_BASE_URL;
-    const {setUserEmail , setUser_Name } = useNews();
+    const { setUserEmail, setUser_Name } = useNews();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -66,6 +66,24 @@ function SignIn() {
 
     return (
         <div className="signin-container">
+
+            {/* Fixed Brand Header */}
+            <div className="brand-section fixed-brand">
+                <div className="brand-logo">
+                    EazyByts<span className="brand-accent">News</span>
+                </div>
+                <p className="brand-tagline mx-5" style={{
+                    color: "#061958",
+                    fontSize: "17px",
+                    fontFamily: "'Roboto', sans-serif",
+                    fontWeight: 300,
+                    lineHeight: "1.5",
+                }}>
+                    EazyBytsNews brings together the latest stories from trusted sources
+                    worldwide, giving you one place to explore, compare, and stay informed.
+                </p>
+            </div>
+
             <Container className="signin-wrapper">
                 <Card className="signin-card my-2">
                     <CardBody className="signin-card-body">

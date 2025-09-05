@@ -16,7 +16,7 @@ function NewsBody() {
     const BaseURL = import.meta.env.VITE_API_BASE_URL;
 
     const reqData = {
-        q: searchQuery || "everything",
+        q: searchQuery || "Indian everything",
         pageSize: 24,
         page
     }
