@@ -32,7 +32,6 @@ function NewsBody() {
 
         } catch (error) {
             console.error("error occured during fetch news data.",error)
-
             // setArticles(testArticle)
             // console.log("Test articles >>",articles);
         }

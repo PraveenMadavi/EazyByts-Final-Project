@@ -4,10 +4,18 @@ import NewsCard from './NewsCard';
 import { useNews } from './NewsContext';
 import SearchBar from './SearchBar';
 import '../styles/CustomPagination.css';
+import { useEffect } from 'react';
 
 function NewsCards(props) {
   const { page, setPage, searchQuery } = useNews();
   //   console.log("From props >> ", props.news);
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }, [page]);
+
 
   return (
     <>
@@ -19,7 +27,7 @@ function NewsCards(props) {
         <div className="d-flex justify-content-center my-1 ">
           <div>Showing results ... {searchQuery}</div>
         </div>
-       
+
         <Row xs="1" md="3" lg="4">
           {props.news.map((article, index) => (
             <Col key={index} className="mb-3 d-flex" >

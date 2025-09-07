@@ -6,6 +6,7 @@ import com.eazybyts.news.aggregator.jwt.JwtHelper;
 import com.eazybyts.news.aggregator.repositories.UserRepo;
 import com.eazybyts.news.aggregator.userdetails.CustomUserDetails;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,7 +72,7 @@ public class AuthController {
      * Authenticate user and return JWT token in HttpOnly cookie
      */
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody UserLoginDTO userLoginDTO, HttpServletResponse response) {
+    public ResponseEntity<?> login(@RequestBody UserLoginDTO userLoginDTO, HttpServletResponse response, HttpSession session) {
         try {
             if (userLoginDTO.getEmail() == null || userLoginDTO.getPassword() == null) {
                 return ResponseEntity.badRequest().body(ApiResponse.error("Email and password must not be empty"));
@@ -100,6 +101,9 @@ public class AuthController {
             UserInfo userInfo = new UserInfo();
             userInfo.setEmail(user.getEmail());
             userInfo.setUsername(user.getUsername());
+
+            session.setAttribute("userId",user.getId());
+            log.info("UserId added in session : {}",session);
 
             log.info("User logged in successfully: {}", userLoginDTO.getEmail());
             return ResponseEntity.ok(userInfo);

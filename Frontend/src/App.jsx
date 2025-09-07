@@ -2,6 +2,8 @@ import React from 'react'
 import NewsBody from './components/NewsBody'
 import { NewsProvider } from './components/NewsContext';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 
@@ -31,6 +33,7 @@ function App() {
           </Routes>
         </Router>
       </div>
+       <ToastContainer position="top-right" autoClose={3000} />
 
     </NewsProvider>
   );

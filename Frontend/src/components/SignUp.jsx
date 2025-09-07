@@ -102,14 +102,14 @@ function SignUp() {
       <Container className="signup-wrapper">
         <Card className="signup-card my-2">
           <CardBody className="signup-card-body">
-            <div className="brand-section">
+            {/* <div className="brand-section">
               <div className="brand-logo">
                 EazyByts<span className="brand-accent">News</span>
               </div>
               <p className="brand-tagline">
                 Your trusted source for latest updates
               </p>
-            </div>
+            </div> */}
 
             <CardTitle tag="h4" className="signup-title">
               Create Your Account
