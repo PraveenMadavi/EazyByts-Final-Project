@@ -28,6 +28,7 @@ public class JwtHelper {
         Map<String, Object> claims = new HashMap<>();
         // Add role/authorities if needed
         claims.put("roles", userDetails.getAuthorities());
+//        claims.put("userId", 8778);// we can put claims like this
         return doGenerateToken(claims, userDetails.getUsername());
     }
 

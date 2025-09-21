@@ -72,7 +72,7 @@ public class AuthController {
      * Authenticate user and return JWT token in HttpOnly cookie
      */
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody UserLoginDTO userLoginDTO, HttpServletResponse response, HttpSession session) {
+    public ResponseEntity<?> login(@RequestBody UserLoginDTO userLoginDTO, HttpServletResponse response) {
         try {
             if (userLoginDTO.getEmail() == null || userLoginDTO.getPassword() == null) {
                 return ResponseEntity.badRequest().body(ApiResponse.error("Email and password must not be empty"));
@@ -101,9 +101,6 @@ public class AuthController {
             UserInfo userInfo = new UserInfo();
             userInfo.setEmail(user.getEmail());
             userInfo.setUsername(user.getUsername());
-
-            session.setAttribute("userId",user.getId());
-            log.info("UserId added in session : {}",session);
 
             log.info("User logged in successfully: {}", userLoginDTO.getEmail());
             return ResponseEntity.ok(userInfo);

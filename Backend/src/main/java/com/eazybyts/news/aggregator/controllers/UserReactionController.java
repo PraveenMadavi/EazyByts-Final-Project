@@ -4,11 +4,14 @@ import com.eazybyts.news.aggregator.entities.Comments;
 import com.eazybyts.news.aggregator.entities.LikedArticle;
 import com.eazybyts.news.aggregator.entities.User;
 import com.eazybyts.news.aggregator.repositories.UserRepo;
+import com.eazybyts.news.aggregator.userdetails.CustomUserDetails;
 import jakarta.servlet.http.HttpSession;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
@@ -23,9 +26,11 @@ public class UserReactionController {
     }
 
     @PostMapping("/like")
-    public ResponseEntity<?> like(@RequestBody LikeDTO likeDTO, HttpSession session) {
-        log.info("Trying to fetch userId from session during like: {}", session);
-        Long userId = (Long) session.getAttribute("userId");
+    public ResponseEntity<?> like(@RequestBody LikeDTO likeDTO, Authentication authentication, @AuthenticationPrincipal CustomUserDetails customUserDetails) {
+
+//        Long userId = (Long) session.getAttribute("userId");
+        Long userId = customUserDetails.getUserId();
+
         if (userId == null) {
             log.warn("No user found in session while liking article.");
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User not logged in.");
@@ -50,9 +55,9 @@ public class UserReactionController {
     }
 
     @PostMapping("/comment")
-    public ResponseEntity<?> comment(@RequestBody CommentDTO commentDTO, HttpSession session) {
-        log.info("Trying to fetch userId from session during comment : {}", session);
-        Long userId = (Long) session.getAttribute("userId");
+    public ResponseEntity<?> comment(@RequestBody CommentDTO commentDTO, HttpSession session,@AuthenticationPrincipal CustomUserDetails customUserDetails) {
+//        Long userId = (Long) session.getAttribute("userId");
+        Long userId = customUserDetails.getUserId();
         if (userId == null) {
             log.warn("No user found in session while commenting.");
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User not logged in.");
@@ -73,6 +78,7 @@ public class UserReactionController {
         log.info("Comment added by user: {}", user.getUsername());
         return ResponseEntity.ok("Comment added successfully.");
     }
+
 
     // DTOs
     @Data
